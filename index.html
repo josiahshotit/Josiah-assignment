@@ -1,54 +1,531 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Biography</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <main class="container">
-      <header class="intro">
-        <h1>My Biography</h1>
-        <p>
-          My name is <strong>Fatima Zakiyya Ahmad</strong>. I am a Computer
-          Science graduate, and my favorite color is black.
-        </p>
-      </header>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmanuel Unekwuojo Josiah | Portfolio & Digital ID</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        nitda: {
+                            emerald: '#035A2A',
+                            gold: '#D4AF37',
+                            dark: '#0A120D',
+                            card: '#121E16',
+                            border: '#1E3627'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
 
-      <section class="hobbies">
-        <h2>Hobbies</h2>
-        <ul>
-          <li>Watching movies</li>
-          <li>Reading</li>
-          <li>Cooking</li>
-          <li>Spending money</li>
-        </ul>
-      </section>
+    <style>
+        body {
+            background-color: #050B07;
+            color: #E2E8F0;
+            font-family: 'Inter', sans-serif;
+        }
 
-      <section class="profile-photo">
-        <img
-          src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80"
-          alt="Portrait of Fatima Zakiyya Ahmad"
-        />
-      </section>
+        .perspective-1000 {
+            perspective: 1000px;
+        }
 
-      <section class="id-card" aria-label="NITDA ID Card">
-        <div class="card-header">NITDA ID CARD</div>
+        .transform-style-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-        <img
-          src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80"
-          alt="ID card portrait"
-          class="card-image"
-        />
+        .rotate-y-180 {
+            transform: rotateY(180deg);
+        }
 
-        <div class="card-details">
-          <p><strong>Name:</strong> Fatima Zakiyya Ahmad</p>
-          <p><strong>Department:</strong> DLCB</p>
-          <p><strong>Phone No:</strong> 08142555314</p>
-          <p><strong>Expiring date:</strong> 31/12/2026</p>
+        .backface-hidden {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .glass-card {
+            background: rgba(18, 30, 22, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .glass-id {
+            background: linear-gradient(135deg, rgba(3, 90, 42, 0.95), rgba(10, 25, 16, 0.98));
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(3, 90, 42, 0.2);
+        }
+
+        .custom-glow {
+            box-shadow: 0 0 25px rgba(3, 90, 42, 0.35);
+        }
+
+        .custom-glow-gold {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050B07;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #035A2A;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-nitda-gold selection:text-black">
+
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-black/60 border-b border-nitda-border/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-nitda-emerald to-nitda-gold flex items-center justify-center font-bold text-lg text-black shadow-lg">
+                        EJ
+                    </div>
+                    <div>
+                        <span class="text-lg font-bold tracking-tight text-white block leading-none">Emmanuel Josiah</span>
+                        <span class="text-xs text-nitda-gold font-mono tracking-wide">Computer Scientist & Designer</span>
+                    </div>
+                </div>
+
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#about" class="text-gray-300 hover:text-nitda-gold transition-colors">About</a>
+                    <a href="#id-card" class="text-gray-300 hover:text-nitda-gold transition-colors">NITDA ID Card</a>
+                    <a href="#hobbies" class="text-gray-300 hover:text-nitda-gold transition-colors">Passions & Hobbies</a>
+                    <a href="#contact" class="text-gray-300 hover:text-nitda-gold transition-colors">Contact</a>
+                </nav>
+
+                <div class="hidden md:flex items-center">
+                    <button onclick="copyPhoneNumber('08033304516')" class="bg-nitda-emerald hover:bg-emerald-700 text-white font-medium px-5 py-2.5 rounded-xl border border-nitda-gold/30 transition-all transform hover:-translate-y-0.5 flex items-center space-x-2 text-sm shadow-lg">
+                        <i class="fa-solid fa-phone text-nitda-gold"></i>
+                        <span>08033304516</span>
+                    </button>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white p-2">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
         </div>
-      </section>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-nitda-dark border-b border-nitda-border px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block py-2 text-gray-300 hover:text-nitda-gold">About</a>
+            <a href="#id-card" class="block py-2 text-gray-300 hover:text-nitda-gold">NITDA ID Card</a>
+            <a href="#hobbies" class="block py-2 text-gray-300 hover:text-nitda-gold">Passions & Hobbies</a>
+            <a href="#contact" class="block py-2 text-gray-300 hover:text-nitda-gold">Contact</a>
+            <button onclick="copyPhoneNumber('08033304516')" class="w-full bg-nitda-emerald hover:bg-emerald-700 text-white font-medium px-4 py-2.5 rounded-xl border border-nitda-gold/30 flex items-center justify-center space-x-2 text-sm">
+                <i class="fa-solid fa-phone text-nitda-gold"></i>
+                <span>Copy 08033304516</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section id="about" class="py-16 md:py-24 relative overflow-hidden">
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-nitda-emerald/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-72 h-72 bg-nitda-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center space-x-2 bg-nitda-emerald/30 border border-nitda-emerald/60 px-4 py-1.5 rounded-full text-nitda-gold text-xs font-mono tracking-wide">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                            <span>Computer Science Graduate & Digital Innovator</span>
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                            Hi, I'm <br/>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-nitda-gold to-yellow-200">
+                                Emmanuel U. Josiah
+                            </span>
+                        </h1>
+
+                        <p class="text-gray-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+                            A passionate <span class="text-white font-semibold">Computer Science graduate</span> with an eye for UI/UX visual aesthetics and modern frontend technology. I thrive at the intersection of logical problem-solving, intuitive user-centered design, photography, and creative art.
+                        </p>
+
+                        <div class="pt-2">
+                            <h3 class="text-xs uppercase tracking-widest text-gray-400 font-mono mb-3">Core Expertise & Creative Toolkit</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-nitda-card hover:border-nitda-gold/50 border border-nitda-border px-3.5 py-1.5 rounded-lg text-xs font-mono text-gray-200 transition-all flex items-center space-x-2">
+                                    <i class="fa-solid fa-code text-emerald-400"></i>
+                                    <span>Computer Science</span>
+                                </span>
+                                <span class="bg-nitda-card hover:border-nitda-gold/50 border border-nitda-border px-3.5 py-1.5 rounded-lg text-xs font-mono text-gray-200 transition-all flex items-center space-x-2">
+                                    <i class="fa-solid fa-pen-nib text-nitda-gold"></i>
+                                    <span>UI/UX & Web Design</span>
+                                </span>
+                                <span class="bg-nitda-card hover:border-nitda-gold/50 border border-nitda-border px-3.5 py-1.5 rounded-lg text-xs font-mono text-gray-200 transition-all flex items-center space-x-2">
+                                    <i class="fa-solid fa-camera text-blue-400"></i>
+                                    <span>Visual Arts & Photography</span>
+                                </span>
+                                <span class="bg-nitda-card hover:border-nitda-gold/50 border border-nitda-border px-3.5 py-1.5 rounded-lg text-xs font-mono text-gray-200 transition-all flex items-center space-x-2">
+                                    <i class="fa-solid fa-shield-halved text-purple-400"></i>
+                                    <span>NITDA Scholar</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 flex flex-wrap gap-4 items-center">
+                            <a href="#id-card" class="bg-gradient-to-r from-nitda-emerald to-emerald-700 hover:from-emerald-600 hover:to-emerald-800 text-white font-semibold px-6 py-3.5 rounded-xl shadow-lg border border-nitda-gold/30 transition-all transform hover:-translate-y-1 flex items-center space-x-2">
+                                <i class="fa-solid fa-id-card text-nitda-gold"></i>
+                                <span>View NITDA Digital ID</span>
+                            </a>
+                            <a href="#hobbies" class="bg-nitda-card hover:bg-nitda-border text-gray-200 hover:text-white font-medium px-6 py-3.5 rounded-xl border border-nitda-border transition-all flex items-center space-x-2">
+                                <i class="fa-solid fa-icons text-emerald-400"></i>
+                                <span>Explore Hobbies</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative group">
+                            <div class="absolute -inset-1 bg-gradient-to-r from-nitda-emerald to-nitda-gold rounded-2xl blur-xl opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                            
+                            <div class="relative bg-nitda-card border-2 border-nitda-gold/30 rounded-2xl p-4 sm:p-6 w-full max-w-sm text-center">
+                                <div class="relative w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden border-4 border-nitda-gold/40 shadow-2xl">
+                                    <img src="IMG_8764.JPG" onerror="this.onerror=null; this.src='https://placehold.co/400x400/035A2A/FFFFFF?text=Emmanuel+Josiah';" alt="Emmanuel Unekwuojo Josiah" class="w-full h-full object-cover">
+                                </div>
+                                <h2 class="text-xl font-bold text-white mb-1">Emmanuel U. Josiah</h2>
+                                <p class="text-xs text-nitda-gold font-mono mb-4">DLCB Department / NITDA Program</p>
+                                
+                                <div class="bg-black/50 rounded-xl p-3 border border-nitda-border/60 text-left text-xs space-y-2 font-mono text-gray-300">
+                                    <div class="flex justify-between border-b border-gray-800 pb-1">
+                                        <span class="text-gray-500">Status:</span>
+                                        <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-circle-check text-[10px] mr-1"></i> Verified</span>
+                                    </div>
+                                    <div class="flex justify-between border-b border-gray-800 pb-1">
+                                        <span class="text-gray-500">Degree:</span>
+                                        <span class="text-gray-200">B.Sc. Computer Science</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-500">Theme Preference:</span>
+                                        <span class="text-gray-200">Sleek Black & Emerald</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="id-card" class="py-16 bg-nitda-dark/80 border-y border-nitda-border relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-xs font-mono uppercase tracking-widest text-nitda-gold">Official Credential</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Interactive NITDA Digital ID Card</h2>
+                    <p class="text-gray-400 text-sm mt-2">Hover over or click the card to flip between front credential view and secure verification metadata.</p>
+                </div>
+
+                <div class="flex flex-col items-center justify-center">
+                    <div class="w-full max-w-md h-[460px] perspective-1000 cursor-pointer group" id="idCardWrapper" onclick="flipCard()">
+                        <div id="idCardInner" class="relative w-full h-full transform-style-3d duration-700 shadow-2xl rounded-2xl">
+                            <div class="absolute w-full h-full rounded-2xl backface-hidden glass-id p-6 flex flex-col justify-between overflow-hidden border border-nitda-gold/40">
+                                <div class="absolute -right-10 -bottom-10 opacity-10 pointer-events-none text-white">
+                                    <i class="fa-solid fa-shield-halved text-[220px]"></i>
+                                </div>
+
+                                <div>
+                                    <div class="bg-gradient-to-r from-nitda-emerald via-emerald-800 to-nitda-emerald border border-nitda-gold/50 rounded-xl p-3 text-center shadow-md relative overflow-hidden">
+                                        <div class="absolute top-0 right-0 w-12 h-12 bg-nitda-gold/20 rounded-full blur-md"></div>
+                                        <h3 class="font-mono text-base font-extrabold text-white tracking-wider flex items-center justify-center space-x-2">
+                                            <i class="fa-solid fa-id-badge text-nitda-gold"></i>
+                                            <span>NITDA ID CARD</span>
+                                        </h3>
+                                        <p class="text-[10px] text-emerald-200 font-mono tracking-widest uppercase">National Information Tech Dev Agency</p>
+                                    </div>
+                                </div>
+
+                                <div class="my-4 flex flex-col items-center">
+                                    <div class="relative">
+                                        <div class="w-28 h-28 rounded-full p-1 bg-gradient-to-tr from-nitda-gold via-emerald-500 to-yellow-100 shadow-lg">
+                                            <img src="IMG_8764.JPG" onerror="this.onerror=null; this.src='https://placehold.co/300x300/035A2A/FFFFFF?text=ID+Photo';" alt="ID Photo" class="w-full h-full rounded-full object-cover border-2 border-black">
+                                        </div>
+                                        <div class="absolute bottom-0 right-0 bg-nitda-gold text-black rounded-full p-1.5 shadow-md border border-white text-xs" title="Official Gold Badge">
+                                            <i class="fa-solid fa-check-double"></i>
+                                        </div>
+                                    </div>
+
+                                    <h3 class="text-lg font-bold text-white mt-3 text-center tracking-wide">Emmanuel Unekwuojo Josiah</h3>
+                                    <p class="text-xs font-mono text-nitda-gold bg-black/40 px-3 py-1 rounded-full border border-nitda-gold/20 mt-1">
+                                        Computer Science
+                                    </p>
+                                </div>
+
+                                <div class="bg-black/60 rounded-xl p-3 border border-nitda-border/80 text-xs font-mono space-y-1.5">
+                                    <div class="flex justify-between items-center text-gray-300">
+                                        <span class="text-gray-500">ID NO:</span>
+                                        <span class="text-white font-semibold">NITDA/CS/2026/0451</span>
+                                    </div>
+                                    <div class="flex justify-between items-center text-gray-300">
+                                        <span class="text-gray-500">DEPARTMENT:</span>
+                                        <span class="text-white">Computer Science</span>
+                                    </div>
+                                    <div class="flex justify-between items-center text-gray-300">
+                                        <span class="text-gray-500">PHONE:</span>
+                                        <span class="text-nitda-gold">08033304516</span>
+                                    </div>
+                                    <div class="flex justify-between items-center text-gray-300 pt-1 border-t border-gray-800">
+                                        <span class="text-gray-500">EXPIRY DATE:</span>
+                                        <span class="text-emerald-400 font-bold">28/02/2026</span>
+                                    </div>
+                                </div>
+
+                                <div class="text-center pt-2">
+                                    <span class="text-[10px] text-gray-400 font-mono italic">
+                                        <i class="fa-solid fa-rotate mr-1 text-nitda-gold"></i> Click card to view security seal & QR code
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="absolute w-full h-full rounded-2xl backface-hidden rotate-y-180 glass-id p-6 flex flex-col justify-between overflow-hidden border border-nitda-gold/40 bg-gradient-to-br from-black via-nitda-card to-nitda-emerald">
+                                <div class="border-b border-nitda-border pb-3 flex justify-between items-center">
+                                    <div>
+                                        <p class="text-xs font-mono text-nitda-gold font-bold">SECURITY VERIFICATION</p>
+                                        <p class="text-[10px] text-gray-400">Digital Credentials Ledger</p>
+                                    </div>
+                                    <i class="fa-solid fa-fingerprint text-2xl text-nitda-gold"></i>
+                                </div>
+
+                                <div class="w-full h-10 bg-black/90 my-2 rounded flex items-center px-4">
+                                    <div class="w-full h-2 bg-gradient-to-r from-yellow-600 via-yellow-200 to-yellow-600 opacity-60"></div>
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-4 items-center bg-black/40 p-3 rounded-xl border border-nitda-border">
+                                    <div class="text-center">
+                                        <div class="w-20 h-20 bg-white p-1 rounded-lg mx-auto flex items-center justify-center shadow-inner">
+                                            <svg viewBox="0 0 100 100" class="w-full h-full">
+                                                <path d="M0,0 h30 v30 h-30 z M10,10 h10 v10 h-10 z M70,0 h30 v30 h-30 z M80,10 h10 v10 h-10 z M0,70 h30 v30 h-30 z M10,80 h10 v10 h-10 z M40,10 h10 v10 h-10 z M50,40 h20 v20 h-20 z M80,70 h20 v20 h-20 z M40,70 h20 v20 h-20 z" fill="#035A2A" />
+                                            </svg>
+                                        </div>
+                                        <span class="text-[9px] font-mono text-gray-400 block mt-1">Scan for verification</span>
+                                    </div>
+
+                                    <div class="space-y-2 text-left font-mono text-[11px]">
+                                        <div>
+                                            <span class="text-gray-500 block text-[9px]">ISSUER:</span>
+                                            <span class="text-gray-200">NITDA Federal Portal</span>
+                                        </div>
+                                        <div>
+                                            <span class="text-gray-500 block text-[9px]">STATUS:</span>
+                                            <span class="text-emerald-400 font-bold">Active & Valid</span>
+                                        </div>
+                                        <div>
+                                            <span class="text-gray-500 block text-[9px]">SECURITY CLASS:</span>
+                                            <span class="text-nitda-gold">Class-A Encrypted</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="text-[10px] text-gray-400 text-center leading-tight">
+                                    This card remains the property of NITDA. If found, please return to the nearest DLCB office or contact 08033304516.
+                                </div>
+
+                                <div class="text-center pt-1 border-t border-nitda-border/60">
+                                    <span class="text-[10px] text-nitda-gold font-mono">
+                                        <i class="fa-solid fa-rotate mr-1"></i> Click to flip back
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 flex flex-wrap gap-4 justify-center">
+                        <button onclick="flipCard()" class="bg-nitda-card hover:bg-nitda-border border border-nitda-gold/30 text-white font-mono text-xs px-5 py-2.5 rounded-xl transition flex items-center space-x-2">
+                            <i class="fa-solid fa-arrows-rotate text-nitda-gold"></i>
+                            <span>Flip ID Card</span>
+                        </button>
+                        <button onclick="downloadIDCard()" class="bg-nitda-emerald hover:bg-emerald-700 border border-nitda-gold/30 text-white font-mono text-xs px-5 py-2.5 rounded-xl transition flex items-center space-x-2 shadow-md">
+                            <i class="fa-solid fa-download text-nitda-gold"></i>
+                            <span>Save Digital Credentials</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="hobbies" class="py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs font-mono uppercase tracking-widest text-nitda-gold">Beyond the Code</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Hobbies & Creative Passions</h2>
+                    <p class="text-gray-400 text-sm mt-2">How Emmanuel balances computational thinking with artistic energy and relaxation.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="glass-card rounded-2xl p-6 border border-nitda-border hover:border-nitda-gold/60 transition-all duration-300 transform hover:-translate-y-2 group">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-camera-retro"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-nitda-gold transition-colors">Photography</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">
+                            Capturing moments, light play, and visual symmetry. Photography fuels an appreciation for composition and visual detail in web design.
+                        </p>
+                        <span class="text-[11px] font-mono text-blue-400 bg-blue-500/10 px-2.5 py-1 rounded-md border border-blue-500/20">
+                            #VisualStorytelling
+                        </span>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 border border-nitda-border hover:border-nitda-gold/60 transition-all duration-300 transform hover:-translate-y-2 group">
+                        <div class="w-14 h-14 rounded-2xl bg-nitda-gold/10 border border-nitda-gold/30 flex items-center justify-center text-nitda-gold text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-nitda-gold transition-colors">Designing</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">
+                            Crafting clean user interfaces, modern branding layouts, and aesthetic digital experiences with bold dark modes and gold accents.
+                        </p>
+                        <span class="text-[11px] font-mono text-nitda-gold bg-nitda-gold/10 px-2.5 py-1 rounded-md border border-nitda-gold/20">
+                            #UIUXDesign
+                        </span>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 border border-nitda-border hover:border-nitda-gold/60 transition-all duration-300 transform hover:-translate-y-2 group">
+                        <div class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-music"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-nitda-gold transition-colors">Dancing</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">
+                            Expressing rhythm, energy, and movement. Dancing keeps the body active and provides a creative outlet away from screen hours.
+                        </p>
+                        <span class="text-[11px] font-mono text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-md border border-purple-500/20">
+                            #RhythmAndFlow
+                        </span>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 border border-nitda-border hover:border-nitda-gold/60 transition-all duration-300 transform hover:-translate-y-2 group">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-mug-hot"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-nitda-gold transition-colors">Chilling</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">
+                            Unwinding with great music, thoughtful conversations, strategic rest, and resetting focus for the next big technical challenge.
+                        </p>
+                        <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">
+                            #MindfulRelaxation
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 bg-nitda-dark/80 border-t border-nitda-border">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-gradient-to-r from-nitda-card via-nitda-emerald/40 to-nitda-card rounded-3xl p-8 sm:p-12 border border-nitda-gold/30 shadow-2xl relative overflow-hidden text-center sm:text-left">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-8 space-y-4">
+                            <span class="text-xs font-mono uppercase tracking-widest text-nitda-gold">Get In Touch</span>
+                            <h2 class="text-3xl font-extrabold text-white">Let's Connect & Collaborate</h2>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Need a tech-savvy Computer Science professional, UI designer, or team collaborator? Emmanuel is open to new opportunities and projects.
+                            </p>
+                            
+                            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4 pt-2">
+                                <div class="bg-black/60 px-4 py-2 rounded-xl border border-nitda-border font-mono text-sm text-nitda-gold flex items-center space-x-2">
+                                    <i class="fa-solid fa-phone"></i>
+                                    <span>08033304516</span>
+                                </div>
+                                <div class="bg-black/60 px-4 py-2 rounded-xl border border-nitda-border font-mono text-sm text-emerald-400 flex items-center space-x-2">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>Nigeria</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="md:col-span-4 flex flex-col sm:items-end justify-center space-y-3">
+                            <a href="tel:08033304516" class="w-full sm:w-auto bg-nitda-emerald hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-xl border border-nitda-gold/30 shadow-lg text-center transition flex items-center justify-center space-x-2 text-sm">
+                                <i class="fa-solid fa-phone-flip text-nitda-gold"></i>
+                                <span>Call Directly</span>
+                            </a>
+                            <button onclick="copyPhoneNumber('08033304516')" class="w-full sm:w-auto bg-black hover:bg-gray-900 border border-nitda-border text-gray-200 font-semibold px-6 py-3 rounded-xl text-center transition flex items-center justify-center space-x-2 text-sm">
+                                <i class="fa-solid fa-copy text-gray-400"></i>
+                                <span>Copy Phone Number</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-  </body>
+
+    <footer class="bg-black border-t border-nitda-border/60 py-8 text-xs font-mono text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+            <div>
+                <p>&copy; 2026 <span class="text-white font-semibold">Emmanuel Unekwuojo Josiah</span>. All Rights Reserved.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#about" class="hover:text-nitda-gold transition">About</a>
+                <a href="#id-card" class="hover:text-nitda-gold transition">NITDA ID</a>
+                <a href="#hobbies" class="hover:text-nitda-gold transition">Hobbies</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed bottom-6 right-6 bg-nitda-emerald text-white px-5 py-3 rounded-xl border border-nitda-gold shadow-2xl flex items-center space-x-3 transition-all duration-300 transform translate-y-20 opacity-0 z-50">
+        <i class="fa-solid fa-circle-check text-nitda-gold text-lg"></i>
+        <span id="toast-message" class="text-xs font-mono">Phone number copied to clipboard!</span>
+    </div>
+
+    <script>
+        function flipCard() {
+            const cardInner = document.getElementById('idCardInner');
+            cardInner.classList.toggle('rotate-y-180');
+        }
+
+        function copyPhoneNumber(number) {
+            const tempInput = document.createElement('input');
+            tempInput.value = number;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            showToast('Phone number ' + number + ' copied to clipboard!');
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.innerText = message;
+            
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        function downloadIDCard() {
+            showToast('NITDA Digital Credentials saved to cache!');
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
 </html>

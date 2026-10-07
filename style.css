@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f1e8;
+  color: #1d1d1d;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 24px;
+}
+
+.intro {
+  margin-bottom: 30px;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hobbies {
+  margin-bottom: 30px;
+}
+
+.hobbies h2 {
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+}
+
+.hobbies ul {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.profile-photo {
+  margin: 20px 0 30px;
+}
+
+.profile-photo img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.id-card {
+  width: min(100%, 360px);
+  background: beige;
+  padding: 20px;
+  border: 2px solid black;
+  display: grid;
+  place-items: center;
+  gap: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+  width: 100%;
+  background: rgb(3, 90, 42);
+  color: #fff;
+  padding: 20px 16px;
+  text-align: center;
+  font-size: 1.7rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+.card-image {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
+
+.card-details {
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.card-details p {
+  margin: 0;
+}
